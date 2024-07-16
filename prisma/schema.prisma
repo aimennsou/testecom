@@ -1,0 +1,61 @@
+
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model Category {
+  id          Int       @id @default(autoincrement())
+  nom         String
+  description String?
+  parentId    Int?     
+  
+
+  parent      Category?   @relation("Children", fields: [parentId], references: [id])
+  children    Category[]  @relation("Children")
+  produits    Product[]   @relation("CategoryToProduct")
+  
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+
+model Product {
+  id             Int      @id @default(autoincrement())
+  nom            String
+  prix           Float
+  quantiteStock  Int
+  
+categoryy Int
+  categories     Category[] @relation("CategoryToProduct")
+  
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+
+model Panier {
+  id         Int      @id @default(autoincrement())
+  articles   CartItem[]
+  
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+
+model CartItem {
+  id           Int      @id @default(autoincrement())
+  produitId    Int
+  quantite     Int
+  panier       Panier   @relation(fields: [panierId], references: [id])
+  panierId     Int
+prixUnitaire  Int
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}

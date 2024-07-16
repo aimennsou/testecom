@@ -15,7 +15,7 @@ schema dans le dossier > prisma
 
 ## les routes api ( back end )
 
-le dossier > src > api
+le dossier > src > app > api
 
 
 

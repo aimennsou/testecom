@@ -3,7 +3,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ## test technique ecom
 
 demo live : https://testtechniqueecom.vercel.app/
-
+![Alt text]([relative/path/to/image.png](https://github.com/aimennsou/testecom/blob/c71ae528ccbf5df87db9e73832ac717bad74bccb/testttttt.PNG))
 
 ## Learn More
 
